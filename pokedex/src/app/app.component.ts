@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -10,44 +10,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'My profile',
-      url: '/folder/profile',
-      icon: 'person'
-    },
-    {
-      title: 'Pokedex',
-      url: '/folder/Pokedex',
-      icon: 'search'
-    },
-    {
-      title: 'Logout',
-      url: '/folder/Logout',
-      icon: 'power'
-    }
-  ];
+  // public selectedIndex = 0;
+  // public appPages = [
+  //   {
+  //     title: 'My profile',
+  //     url: '/folder/profile',
+  //     icon: 'person'
+  //   },
+  //   {
+  //     title: 'Pokedex',
+  //     url: '/folder/pokedex',
+  //     icon: 'search'
+  //   }
+  // ];
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
+  constructor( ) { }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+  ngOnInit() { }
 
-  ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
-  }
+
 }
