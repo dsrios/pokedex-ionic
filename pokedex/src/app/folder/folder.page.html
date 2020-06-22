@@ -19,7 +19,7 @@
             <ion-icon slot="start" ios="power-outline" md="power-sharp"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>
-        </ion-list>
+        </ion-list>        
       </ion-content>
   </ion-menu>
 
@@ -32,10 +32,11 @@
         <ion-title>{{ folder | titlecase }}</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-router-outlet></ion-router-outlet>
-  </div>
-
-
+    <ion-content>
+      <ion-router-outlet></ion-router-outlet>   
+    </ion-content>  
+    <!-- <app-pokedex></app-pokedex> -->
+  </div> 
 </ion-app>
 
 

@@ -8,9 +8,9 @@ const routes: Routes = [
     path: '',
     component: SignUpPage
   },
-  { path:  'sign-up',
-    loadChildren:  './auth/sign-up/sign-up.module'
-  }
+  // { path:  'sign-up',
+  //   loadChildren:  './auth/sign-up/sign-up.module'
+  // }
 ];
 
 @NgModule({

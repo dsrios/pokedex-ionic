@@ -1,5 +1,5 @@
 <ion-content  color="primary">
-  <form  #form="ngForm" (ngSubmit)="register(form)">
+  <form [formGroup]="signupForm" #form="ngForm" (ngSubmit)="register(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -8,16 +8,22 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
+              <ion-input formControlName="name" name="name" type="text" placeholder="Name"  ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              <ion-input 
+                formControlName="email"
+                name="email" 
+                type="email" 
+                placeholder="your@email.com"                  
+              >
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+              <ion-input formControlName="password" name="password" type="password" placeholder="Password"  ></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password again" ngModel required></ion-input>
+              <ion-input formControlName="confirmpassword" name="confirm" type="password" placeholder="Password again"  ></ion-input>
             </ion-item>
           </div>
           <div padding>
@@ -27,5 +33,14 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    <div class="error-message" *ngIf="!signupForm.get('confirmpassword').errors && signupForm.hasError('passwordNotMatch') && (signupForm.get('confirmpassword').dirty || signupForm.get('confirmpassword').touched)">
+      Password and Confirm Password fields should match
+    </div>
+    <div class="error-message" *ngIf="signupForm.get('email').status === 'INVALID' && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+      Email not valid
+    </div>
   </form>
 </ion-content>
+
+
+

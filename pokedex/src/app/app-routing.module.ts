@@ -9,8 +9,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule),
+    path: 'folder',
+    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'sign-up',
@@ -19,7 +19,12 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./auth/log-in/log-in.module').then( m => m.LogInPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
+
 ];
 
 @NgModule({

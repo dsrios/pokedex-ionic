@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from './../auth/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
@@ -29,21 +29,18 @@ export class FolderPage implements OnInit {
   constructor(
     private menu: MenuController,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService,
+    private authGuard: AuthGuardService,
     private  router: Router) {
     }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-
     const path = window.location.pathname.split('folder/')[1];
-    // if (path !== undefined) {
-    //   this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    // }
+    this.folder = path;
+
   }
 
   logout() {
-    this.authService.userLogged = null;
+    this.authGuard.userLogged = null;
     this.router.navigateByUrl('/login');
   }
 

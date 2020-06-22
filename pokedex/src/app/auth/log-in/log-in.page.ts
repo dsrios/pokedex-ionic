@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { ToastController } from '@ionic/angular';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-log-in',
@@ -19,11 +21,11 @@ export class LogInPage implements OnInit {
     this.router.navigateByUrl('/sign-up');
   }
 
-  login(form) {
+  login( form ) {
     console.log('values', form.value);
     this.authService.login(form.value.email, form.value.password).subscribe( res => {
       if ( res ) {
-        this.router.navigateByUrl('/folder/Pokedex');
+        this.router.navigateByUrl('/folder/pokedex');
       } else {
         this.presentToast('Login no valid');
       }
