@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './share/services/auth-guard.service';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
@@ -14,11 +14,11 @@ export class FolderPage implements OnInit {
 
   public selectedIndex = 0;
   public appPages = [
-    {
-      title: 'My profile',
-      url: '/folder/profile',
-      icon: 'person'
-    },
+    // {
+    //   title: 'My profile',
+    //   url: '/folder/profile',
+    //   icon: 'person'
+    // },
     {
       title: 'Pokedex',
       url: '/folder/pokedex',

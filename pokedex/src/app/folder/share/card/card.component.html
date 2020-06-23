@@ -1,0 +1,10 @@
+<ion-card>
+  <ion-card-header translucent>
+    <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+    <ion-card-title>{{name}}</ion-card-title>
+  </ion-card-header>
+  <img [src]="details.sprites.front_default" />
+  <ion-card-content style="display: grid;">
+      <ion-label *ngFor="let name of typesName">{{name}}</ion-label>
+  </ion-card-content>
+</ion-card>

@@ -14,6 +14,8 @@ export class SignUpPage implements OnInit {
   signupForm: FormGroup;
   errorMessages = {};
 
+  //  1#Zv96g@*Yfasd4
+
   constructor(private  router: Router, private  authService: AuthService, public formBuilder: FormBuilder) {
 
     this.signupForm = this.formBuilder.group({
@@ -27,13 +29,14 @@ export class SignUpPage implements OnInit {
       ),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30)
+        Validators.minLength(8),
+        Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,30}$')
+       
       ])),
       password: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30)
+        Validators.minLength(8),
+        Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,30}$')
       ])),
     }, {
       validators: this.password.bind(this)

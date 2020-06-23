@@ -1,0 +1,17 @@
+.grid-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+
+.rowContent {
+    display: contents;
+    place-content: center;
+    text-align: center;
+}
+
+.nav-buttons {
+    display: flex;
+    place-content: space-evenly;
+}

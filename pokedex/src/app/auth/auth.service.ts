@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthGuardService } from './../folder/services/auth-guard.service';
+import { AuthGuardService } from '../folder/share/services/auth-guard.service';
 import { Observable, observable } from 'rxjs';
 
 @Injectable({
@@ -7,13 +7,12 @@ import { Observable, observable } from 'rxjs';
 })
 export class AuthService {
 
-  usersSaved: Array<IUser> = [{name: 'a', email: 'a@aaa.com', pass: 'a'}];
+  usersSaved: Array<IUser> = [{name: 'Diego', email: 'diego@yuxi.com', pass: 'diego123'}];
   
 
   constructor(private authGuard: AuthGuardService) { }
 
   register(value: any) {
-    console.log('values', value);
     return new Observable ( registerObserver => {
       this.usersSaved.push ({
         name: value.name,
@@ -21,7 +20,6 @@ export class AuthService {
         pass: value.password,
       });
 
-      console.log('insert ', this.usersSaved);
       registerObserver.next(true);
 
     });
@@ -29,7 +27,6 @@ export class AuthService {
 
   login(email, password) {
     const objectFound = this.usersSaved.find( e => e.email === email);
-    console.log('resilt', objectFound);
     return new Observable ( loginObserver => {
       if (objectFound) {
         if ( password === objectFound.pass ) {

@@ -1,0 +1,50 @@
+<ion-card>
+  <ion-card-header color="tertiary">
+    <ion-card-title class="title-details">
+      {{pokemonDetails.name | titlecase}}
+      <ion-icon name="close-circle" (click)="dismiss()"></ion-icon>
+    </ion-card-title>    
+  </ion-card-header>
+
+  <ion-card-content class="icon-card-content">
+    <div class="icon-card-content-image-details">
+      <img *ngFor="let imageUrl of imageUrl" [src]="imageUrl" />
+    </div>
+ 
+    <ion-list>
+      <ion-item>
+        <h4>#Id: </h4> <h5> {{pokemonDetails.id}} </h5>
+      </ion-item>
+      <ion-item>
+        <h4>Name: </h4> <h5> {{pokemonDetails.name}} </h5>
+      </ion-item>
+      <ion-item>
+        <h4>Type/Types: </h4> 
+        <ion-list>
+          <ion-label *ngFor="let type of typesNames">
+            <h5> {{type}} </h5>
+          </ion-label>
+        </ion-list>        
+      </ion-item>
+      <ion-item>
+        <h4>Height: </h4> <h5> {{pokemonDetails.height}} </h5>
+      </ion-item>
+      <ion-item>
+        <h4>Weight: </h4> <h5> {{pokemonDetails.weight}} </h5>
+      </ion-item>
+      <ion-item>
+        <h4>Moves: </h4> 
+        <ion-text color="dark">
+          <h5>{{movesList}}</h5>
+        </ion-text>
+        <!-- <ion-list>
+          <ion-label *ngFor="let move of movesList">
+            <h5>{{move}}</h5>
+          </ion-label>
+        </ion-list>         -->
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+

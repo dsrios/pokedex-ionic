@@ -22,7 +22,6 @@ export class LogInPage implements OnInit {
   }
 
   login( form ) {
-    console.log('values', form.value);
     this.authService.login(form.value.email, form.value.password).subscribe( res => {
       if ( res ) {
         this.router.navigateByUrl('/folder/pokedex');

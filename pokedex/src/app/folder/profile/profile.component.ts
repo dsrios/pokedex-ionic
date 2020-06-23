@@ -1,3 +1,4 @@
+import { IPokemonView, IPokemonViewResult } from './../Interfaces/Ipokemon';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

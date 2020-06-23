@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FolderPage } from './folder.page';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './share/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -26,6 +26,10 @@ const routes: Routes = [
         redirectTo: 'login'
       }
     ]
+  },
+  {
+    path: 'view-details',
+    loadChildren: () => import('./share/view-details/view-details.module').then( m => m.ViewDetailsPageModule)
   }
 ];
 

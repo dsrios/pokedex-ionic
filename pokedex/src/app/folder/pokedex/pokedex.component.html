@@ -1,3 +1,17 @@
-<p>
-  pokedex works!
-</p>
+<ion-content>
+
+  <ion-grid class="grid-content" *ngIf="isComplete" >
+    <ion-row class="rowContent" *ngFor="let itemResult of resultCompleted" (click)="goToDetail(itemResult.details)">
+      <app-card [name]="itemResult.name" [details]="itemResult.details" ></app-card>
+    </ion-row>
+  </ion-grid>
+  <div class="nav-buttons">    
+      <ion-button  size="small" color="danger" (click)="getPrevious(previousPageUrl)" [disabled]="!previousPageUrl ? true : false">Previous</ion-button>          
+      <ion-button  size="small" color="dark" (click)="getNext(nextPageUrl)" [disabled]="!nextPageUrl ? true : false">Next</ion-button>    
+  </div>
+
+
+</ion-content>
+
+
+

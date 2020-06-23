@@ -1,0 +1,23 @@
+.title-details {
+    display: grid;
+    grid-auto-flow: column;
+    place-content: space-between;
+}
+
+.icon-card-content {
+    display: grid;
+    overflow-y: scroll;
+    max-height: 91%;
+
+    &-image-details {
+        grid-template-columns: repeat(auto-fill);
+        grid-auto-rows: auto;    
+        text-align: center;  
+    }
+
+    h4 {
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+}
+
